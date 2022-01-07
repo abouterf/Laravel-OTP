@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/packages/abouterf/laravel-mobile-auth
 .env
 .env.backup
 .phpunit.result.cache

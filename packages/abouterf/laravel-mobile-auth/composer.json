@@ -6,7 +6,7 @@
         "laravel mobile auth",
         "mobile auth"
     ],
-    "homepage": "",
+    "homepage": "https://github.com/",
     "license": "",
     "authors": [{
         "name": "abouter",
@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Abouterf\\LaravelMobileAuth\\": "tests"
+            "Abouterf\\LaravelMobileAuth\\Tests\\": "tests"
         }
     },
     "config": {
