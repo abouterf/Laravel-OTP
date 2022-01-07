@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -165,6 +166,8 @@ return [
         /*
          * Package Service Providers...
          */
+
+        \Abouterf\LaravelMobileAuth\ServiceProvider\LaravelMobileAuthServiceProvider::class,
 
         /*
          * Application Service Providers...
