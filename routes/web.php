@@ -19,13 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $sc = new ServiceContainer;
-
-    $sc->addService('user', function(){
-        return new UserService;
-    });
-
-    $userService = $sc->getService('user');
+    $userService = resolve('user');
 
     dd($userService->getUsers());
 
