@@ -1,0 +1,41 @@
+{
+    "name": "abouterf/laravel-mobile-auth",
+    "description": "laravel mobile authentication for laravel framework.",
+    "keywords": [
+        "abouterf",
+        "laravel mobile auth",
+        "mobile auth"
+    ],
+    "homepage": "",
+    "license": "",
+    "authors": [{
+        "name": "abouter",
+        "email": "ekargosha88@gmail.com",
+        "role": "developer"
+    }],
+    "require": {
+        "php": ">=7.2",
+        "illuminate/support": ">=6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Abouterf\\LaravelMobileAuth\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Abouterf\\LaravelMobileAuth\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    }
+
+}
