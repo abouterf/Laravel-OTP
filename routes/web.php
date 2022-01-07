@@ -1,5 +1,8 @@
 <?php
 
+use Abouterf\LaravelMobileAuth\LaravelMobileAuth;
+use App\ServiceContainer;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
+
+    $sc = new ServiceContainer;
+
+    $sc->addService('user', function(){
+        return new UserService;
+    });
+
+    $userService = $sc->getService('user');
+
+    dd($userService->getUsers());
+
     return view('welcome');
 });
+
