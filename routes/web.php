@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    dd(resolve('LaravelMobileAuth'));
-
+    // dd(resolve('LaravelMobileAuth'));
+    dd(LaravelMobileAuth::doSomething());
     // dd($userService->getUsers());
 
     return view('welcome');

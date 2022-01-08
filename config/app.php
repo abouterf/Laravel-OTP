@@ -1,5 +1,6 @@
 <?php
 
+use Abouterf\LaravelMobileAuth\Facade\LaravelMobileAuthFacade;
 
 return [
 
@@ -232,7 +233,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'LaravelMobileAuth' => \Abouterf\LaravelMobileAuth\Facade\LaravelMobileAuthFacade::class,
     ],
 
 ];
