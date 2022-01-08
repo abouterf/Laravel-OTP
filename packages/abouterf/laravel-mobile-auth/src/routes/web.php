@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('mobile-auth', function () {
     dd('Hello from package');
 });
+
+Route::namespace('\Abouterf\LaravelMobileAuth\Http\Controllers')->group(function(){
+    Route::get('mobile-auth', 'AuthController@index');
+});
