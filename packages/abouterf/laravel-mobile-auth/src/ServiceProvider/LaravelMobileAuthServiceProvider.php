@@ -13,4 +13,14 @@ class LaravelMobileAuthServiceProvider extends ServiceProvider
             return new LaravelMobileAuth;
         });
     }
+
+    /**
+     * Bootstrap any package services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+    }
 }

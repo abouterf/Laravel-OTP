@@ -1,9 +1,5 @@
 <?php
-
-use Abouterf\LaravelMobileAuth\LaravelMobileAuth;
-use App\ServiceContainer;
-use App\Services\UserService;
-use Illuminate\Support\Facades\Route;
+namespace Abouterf\LaravelMobileAuth\routes;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('mobile-auth', function () {
+    dd('Hello from package');
 });
-
