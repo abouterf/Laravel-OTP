@@ -12,6 +12,8 @@ class LaravelMobileAuthServiceProvider extends ServiceProvider
         $this->app->bind('LaravelMobileAuth', function () {
             return new LaravelMobileAuth;
         });
+
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-mobile-auth.php', 'LaravelMobileAuth');
     }
 
     /**
