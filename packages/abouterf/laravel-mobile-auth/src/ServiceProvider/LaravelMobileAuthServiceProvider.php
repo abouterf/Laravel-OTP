@@ -23,15 +23,18 @@ class LaravelMobileAuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'LaravelMobileAuth');
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        $this->publishes([
-            __DIR__.'/../config/laravel-mobile-auth.php' => config_path('laravelMobileAuth.php')
-        ],'laravel-mobile-auth-config');
+     
+        $this->_loadRoutes();
+        $this->_loadViews();
+        $this->_loadMigrations();
 
 
+
+   
+    }
+
+    private function _loadViews() :void{
         //lara docs/overriding package views(lara package development)
 
         /*****
@@ -39,11 +42,19 @@ class LaravelMobileAuthServiceProvider extends ServiceProvider
         published.
 
         ****/
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'LaravelMobileAuth');
 
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/LaravelMobileAuth/')
         ], 'laravel-mobile-auth-views');
+    }
 
+    private function _loadRoutes() :void{
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+    }
+
+    private function _loadMigrations() : void{
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations')
         ], 'laravel-mobile-auth-migrations');
