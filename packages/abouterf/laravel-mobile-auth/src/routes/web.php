@@ -19,5 +19,7 @@ Route::get('mobile-auth', function () {
 });
 
 Route::namespace('\Abouterf\LaravelMobileAuth\Http\Controllers')->group(function(){
-    Route::get('mobile-auth', 'AuthController@index');
+    Route::get('login', 'AuthController@login');
+    Route::get('password-login', 'AuthController@passwordLogin');
+    Route::get('otp-login', 'AuthController@otpLogin');
 });
