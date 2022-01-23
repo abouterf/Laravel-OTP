@@ -26,6 +26,11 @@
                    type="tel"
                    name="phone"
                    id="phone">
+            @error('phone')
+            <span class="text-sm text-rose-500">
+                    {{$message}}
+                </span>
+            @enderror
 
             <div class="flex flex-end justify-end">
                 <button class="bg-blue-500 text-white rounded p-2 mt-4 w-1/2 text-sm"

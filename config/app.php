@@ -169,6 +169,7 @@ return [
          */
 
         \Abouterf\LaravelMobileAuth\ServiceProvider\LaravelMobileAuthServiceProvider::class,
+        \Abouterf\LaravelMobileAuth\ServiceProvider\LaravelMobileAuthRouteServiceProvider::class,
 
         /*
          * Application Service Providers...
