@@ -25,9 +25,10 @@
                    placeholder="09123456789"
                    type="tel"
                    name="phone"
+                   value="{{old('phone')}}"
                    id="phone">
             @error('phone')
-            <span class="text-sm text-rose-500">
+            <span class="text-sm text-rose-500 mt-2">
                     {{$message}}
                 </span>
             @enderror

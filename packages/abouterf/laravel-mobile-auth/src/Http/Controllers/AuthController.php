@@ -39,9 +39,24 @@ class AuthController extends BaseController
         $user = User::where('phone', $phone)->first();
 
         if(!$user)
-            return redirect()->back()->withErrors(
-                ['phone' => 'کاربری با شماره وارد شده وجود ندارد.']
-            );
-        dd($user);
+            return redirect()->route('laravel_mobile_auth.otp')->with([
+                'phone' => $phone
+            ]);
+
+            //user exists
+
+        //check user can login with password permission
+        if(!$user->password || $user->most_login_with_otp || $user->attempts_left <= 0)
+            return redirect()->route('laravel_mobile_auth.otp')->with([
+                'phone' => $phone,
+                'can_login_with_password' => false
+            ]);
+
+        //User has pass
+        if ($user->attempts_left > 0)
+            return redirect()->route('laravel_mobile_auth.password')->with([
+                'phone' => $phone
+            ]);
+        dd('OK');
     }
 }

@@ -21,7 +21,7 @@
                     <span class="text-sm text-gray-700">شماره موبایل</span>
                 </label>
                 <input dir="ltr" class="text-sm bg-slate-50 border border-slate-100 rounded p-2 text-gray-600"
-                       value="09123456789"
+                       value="{{Session::get('phone', 'Error')}}"
                        disabled
                        type="tel"
                        name="phone"
@@ -36,11 +36,15 @@
                        name="otp"
                        id="otp">
 
-                <div class="flex items-center justify-between mt-4">
-                    <a href="/password-login" class="text-blue-500 text-sm hover:text-blue-700">ورود با گذرواژه</a>
+                <div class="flex items-center justify-end mt-4">
+                    @if(Session::get('can_login_with_password', false))
+                    <a href="/password-login" class="text-blue-500 text-sm hover:text-blue-700">
+                        ورود با گذرواژه
+                    </a>
+                    @endif
                     <button class="bg-blue-500 text-white rounded p-2 w-1/2 text-sm"
                             type="submit">
-                            ورود به حساب من
+                        ورود به حساب من
                     </button>
                 </div>
             </form>

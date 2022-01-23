@@ -24,7 +24,7 @@
                     </div>
                 </label>
                 <input dir="ltr" class="text-sm bg-slate-50 border border-slate-100 rounded p-2 text-gray-600"
-                       value="09123456789"
+                       value="{{Session::get('phone', 'Error')}}"
                        disabled
                        type="tel"
                        name="phone"
