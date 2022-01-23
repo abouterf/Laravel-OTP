@@ -14,7 +14,13 @@ class AddMobileAuthFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('name')->nullable()->change();
+            $table->string('email')->nullable()->change();
+            $table->string('password')->nullable()->change();
+
+            $table->string('phone')->unique();
+            $table->integer('attempts_left')->default(3);
+            $table->boolean('must_login_with_otp')->default(false);
         });
     }
 
