@@ -21,6 +21,7 @@ Route::get('mobile-auth', function () {
 Route::namespace('\Abouterf\LaravelMobileAuth\Http\Controllers')->group(function(){
     Route::get('login', 'AuthController@login')->name('laravel_mobile_auth.login');
     Route::get('password-login', 'AuthController@passwordLogin')->name('laravel_mobile_auth.password');
+    Route::post('password-login', 'AuthController@passwordCheck')->name('laravel_mobile_auth.password.check');
     Route::get('otp-login', 'AuthController@otpLogin')->name('laravel_mobile_auth.otp');
     Route::post('auth','AuthController@checkAuth')->name('laravel_mobile_auth.auth');
 });
