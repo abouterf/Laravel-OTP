@@ -7,12 +7,26 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthController extends BaseController
 {
     public function login()
     {
         return view('LaravelMobileAuth::login');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::route('laravel_mobile_auth.login')->with([
+            'is_logout' => true
+        ]);
+    }
+
+    public function dashboard()
+    {
+        return view('LaravelMobileAuth::dashboard');
     }
 
     public function passwordLogin()
@@ -38,15 +52,33 @@ class AuthController extends BaseController
         $password = $request->input('password');
 
         $user = User::where('phone', $phone)->first();
+
+        if ($user->attempts_left <= 0 || $user->must_login_with_otp){
+            return redirect()->route('laravel_mobile_auth.otp')->with([
+                'phone' => $phone,
+                'is_redirected_from_password_login' => true
+            ]);
+        }
+
         if (Hash::check($password, $user->password)) {
             Auth::loginUsingId($user->id);
-            return redirect()->to('/dashboard')->with([
+            $user->update([
+                'attempts_left' => 3,
+                'must_login_with_otp' => false
+            ]);
+            return redirect()->route('laravel_mobile_auth.dashboard')->with([
                 'welcome_message' => true,
             ]);
         }
 
         //password not true.
 
+        /*
+         * be careful if you want to change the value using update you
+         * have to add that value as fillable
+        */
+
+        $user->decrement('attempt_left', 1);
         return redirect()->back()->
         withInput([
             'phone' => $phone

@@ -15,6 +15,11 @@
         </div>
 
         <!-- Card Body -->
+        @if(\Illuminate\Support\Facades\Session::has('is_logout'))
+            <div class="my-2 bg-rose-200 text-rose-500 rounded px-4 py-2 text-center">
+                خروج شما از حساب کاربری موفقیت آمیز بود.
+            </div>
+        @endif
         <form action="{{route('laravel_mobile_auth.auth')}}" method="post" class="flex flex-col">
             @csrf
             <label for="phone">
